@@ -25,6 +25,7 @@ export default StyleSheet.create({
     textAlign: 'right',
   },
   viewButton: {
+    marginTop: 100,
     width: '60%',
   },
   btnLogin: {
