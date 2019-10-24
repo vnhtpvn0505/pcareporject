@@ -1,9 +1,19 @@
 import React, {Component} from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, Dimensions} from 'react-native';
 import styles from './styles/ProfileScreenStyle';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 export default class ProfileScreen extends Component {
+  state = {
+    index: 0,
+    routes: [{key: 'first', title: 'First'}, {key: 'second', title: 'Second'}],
+  };
+
+  _renderTabOne = () => {
+    return <View style={[styles.scene, {backgroundColor: '#ff4081'}]} />;
+  };
+  _renderTabTwo = () => {
+    return <View style={[styles.scene, {backgroundColor: '#673ab7'}]} />;
+  };
   render() {
     return (
       <View style={styles.container}>
