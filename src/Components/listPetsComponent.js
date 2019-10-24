@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
-import {Text, View, TextInput, FlatList, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  ViewPropTypes,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 import styles from './styles/listPetsStyle';
+import ScrollableTabView, {
+  ScrollableTabBar,
+  DefaultTabBar,
+} from 'react-native-scrollable-tab-view';
 export default class ListPets extends Component {
   constructor(props) {
     super(props);
@@ -25,23 +35,41 @@ export default class ListPets extends Component {
       ],
     };
   }
-  _renderItems = items => {
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity>
-          <Text>{items.item.name}</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  };
+  // _renderItems = items => {
+  //   return (
+  //     <View style={styles.container}>
+  //       <TouchableOpacity>
+  //         <Text>{items.item.name}</Text>
+  //       </TouchableOpacity>
+  //     </View>
+  //   );
+  // };
   render() {
     return (
-      <FlatList
-        horizontal
-        renderItem={this._renderItems}
-        data={(this, this.state.pets)}
-        keyExtractor={item => item.id}
-      />
+      <ScrollableTabView renderTabBar={() => <DefaultTabBar />}>
+        {this.state.pets.map((item, index) => {
+          return (
+            <View
+              tabLabel={item}
+              key={index}
+              style={{
+                flex: 1,
+                backgroundColor: '#fff',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text>{item}</Text>
+              <Text>{'DefaultTabBar'}</Text>
+            </View>
+          );
+        })}
+      </ScrollableTabView>
+      // <FlatList
+      //   horizontal
+      //   renderItem={this._renderItems}
+      //   data={(this, this.state.pets)}
+      //   keyExtractor={item => item.id}
+      // />
     );
   }
 }

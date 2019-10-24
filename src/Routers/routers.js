@@ -6,6 +6,7 @@ import WelcomeScreen from '../Screens/WelcomeScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import SearchScreen from '../Screens/SearchScreen';
 import DisCoverScreen from '../Screens/DiscoverScreen';
+import ProfileScreen from '../Screens/ProfileScreen';
 
 export default class Routers extends Component {
   render() {
@@ -14,6 +15,7 @@ export default class Routers extends Component {
         <Stack>
           <Scene key="welcome" component={WelcomeScreen} hideNavBar={true} />
           <Scene key="login" component={LoginScreen} hideNavBar={true} />
+
           <Tabs>
             <Scene
               key="discover"
@@ -24,6 +26,7 @@ export default class Routers extends Component {
                 return <Icons color="black" name="web" size={20} />;
               }}
             />
+
             <Scene
               key="search"
               component={SearchScreen}
@@ -49,8 +52,8 @@ export default class Routers extends Component {
               }}
             />
             <Scene
-              key="account"
-              component={SearchScreen}
+              key="profile"
+              component={ProfileScreen}
               hideNavBar={true}
               icon={() => {
                 return <Icons color="black" name="account" size={20} />;
