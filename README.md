@@ -6,4 +6,4 @@
     cannot login with token API
     cannot using tabs in About Screen because version react-native errors with package
     cannot pass params to header && from Discover to About because react-native router-flux have problem in new version React-native 0.6x
-    
+    API in MockAPI  limited (cannot control)
