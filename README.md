@@ -1,7 +1,7 @@
 # pcareporject
 # guilde setup:
-   clone source code
-   cd pcareproject
+   + clone source code
+   + cd pcareproject
    add adb reverse tcp:8081 tcp:8081 in terminal (connect device)
    open terminal: 
          npm install
