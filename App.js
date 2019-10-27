@@ -4,8 +4,10 @@ import {Provider} from 'mobx-react';
 import Routers from './src/Routers/routers';
 
 import LoginStore from './src/Store/loginStore';
+import DoctorStore from './src/Store/doctorStore';
 const store = {
   LoginStore,
+  DoctorStore,
 };
 
 export default class App extends Component<{}> {

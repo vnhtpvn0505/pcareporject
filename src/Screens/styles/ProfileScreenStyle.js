@@ -48,4 +48,46 @@ export default StyleSheet.create({
   txtStar: {
     marginVertical: 3,
   },
+  bgAbout: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    alignItems: 'center',
+  },
+  lblAbout: {
+    fontWeight: 'bold',
+  },
+  tabProfile: {
+    width: '20%',
+    paddingVertical: 5,
+    alignItems: 'center',
+  },
+  viewContentAbout: {
+    padding: 10,
+  },
+  viewItemAbout: {
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  txtAbout: {
+    marginLeft: 20,
+  },
+  btnAbout: {
+    padding: 10,
+    width: '40%',
+    marginVertical: 5,
+    marginHorizontal: 5,
+    backgroundColor: '#FCA691',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 20,
+    borderRadius: 30,
+  },
+  bgButtonAbout: {
+    paddingHorizontal: 30,
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'center',
+  },
 });

@@ -7,54 +7,34 @@ export default class ListDoctor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pets: [
-        {
-          id: 1,
-          src: require('../images/1.jpg'),
-          name: 'Huynh Tan Phuc',
-          point: 4.5,
-          price: '30$/h',
-        },
-        {
-          id: 2,
-          name: 'Huynh Tan Phuc',
-          src: require('../images/1.jpg'),
-          point: 4.5,
-          price: '30$/h',
-        },
-        {
-          id: 3,
-          name: 'Huynh Tan Phuc',
-          src: require('../images/1.jpg'),
-          point: 4.5,
-          price: '40$/h',
-        },
-        {
-          id: 4,
-          name: 'Huynh Tan Phuc',
-          src: require('../images/1.jpg'),
-          point: 4.5,
-          price: '40$/h',
-        },
-        {
-          id: 5,
-          name: 'Huynh Tan Phuc',
-          src: require('../images/1.jpg'),
-          point: 4.5,
-          price: '40$/h',
-        },
-      ],
+      data: [],
     };
   }
+
+  _getData = async () => {
+    console.log('dddsstoe', await this.props.data);
+    this.setState({
+      data: await this.props.data,
+    });
+  };
+  async UNSAFE_componentWillMount() {
+    await this._getData();
+  }
+  _onPress(item) {
+    Actions.profile({item: item});
+  }
+
   _renderItems = (items, index) => {
+    console.log('Items', items);
+
     return (
       <View style={styles.container} key={items.index}>
         <TouchableOpacity
           style={styles.btnListDoctor}
           onPress={() => {
-            Actions.profile();
+            this._onPress(items);
           }}>
-          <Image source={items.item.src} style={styles.imgAvatar} />
+          <Image source={require('../images/1.jpg')} style={styles.imgAvatar} />
           <View style={styles.lblInfo}>
             <Text>{items.item.name}</Text>
             <View style={styles.lblPoint}>
@@ -63,7 +43,7 @@ export default class ListDoctor extends Component {
             </View>
           </View>
           <View style={styles.lblPrices}>
-            <Text>{items.item.price}</Text>
+            <Text>{items.item.money}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -73,7 +53,7 @@ export default class ListDoctor extends Component {
     return (
       <FlatList
         renderItem={this._renderItems}
-        data={(this, this.state.pets)}
+        data={(this, this.state.data)}
         keyExtractor={item => item.id}
       />
     );
