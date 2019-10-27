@@ -5,7 +5,7 @@
    + add adb reverse tcp:8081 tcp:8081 in terminal (connect device)
    + open terminal: 
          - npm install
-         + react-native run-android
+   + react-native run-android
 # feature finish :
     connect Data(API) with MOBx for Discover Screen
     5 screen Welcome, Search, About, Discover
